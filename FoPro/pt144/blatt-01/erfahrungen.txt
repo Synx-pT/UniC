@@ -1,0 +1,4 @@
+Zeit: 7h
+
+Erstes AB war interessant und eine gute Einführung in svn, vim, c++,...
+Wenn ich die Frage richtig verstanden habe, werde ich die Vorlesung in echt konsumieren, nicht im live stream.

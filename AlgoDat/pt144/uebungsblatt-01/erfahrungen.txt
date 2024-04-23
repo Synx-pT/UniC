@@ -1,0 +1,13 @@
+Gruppenmitglieder:
+pt144 - Paul Tröster
+ys151 - Yorick Schiffer
+et130 - Ege Tekin
+
+Die größten Schwierigkeiten hatten wir damit den Algorithmus zu programmieren,
+im Gegensatz zum ersten Semester gab es weniger Hilfe.
+
+Aufgabe 3/4:
+Wenn wir die vier verschiedenen Bilder vergleichen, wird bei unserer Darstellung erkennbar,
+dass die ersten drei sich linear verhalten. Der vierte Graph entwickelt sich hingegen exponentiell.
+Daraus kann man den Schluss ziehen, dass n / 4 , deutlich ineffizienter ist. Vergleichbar ist dieser mit
+dem Algorithmus: Selection Sort.

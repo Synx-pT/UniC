@@ -1,0 +1,22 @@
+
+#include <cstdio>
+#include <cstdlib>
+
+int calc_gcd(int x, int y, bool verbose = false) {
+
+  while (y != 0) {
+    if (verbose && x != y) {
+      printf("gcd(%d, %d)\n", x, y);
+      printf("test\n");
+    }
+    if (x > y) {
+      x = x % y;
+    } else {
+      int temp = y;
+      y = y % x;
+      x = temp;
+    }
+  }
+
+  return x;
+}

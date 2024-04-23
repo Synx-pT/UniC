@@ -1,0 +1,101 @@
+import random
+import time
+import math
+
+
+def merge_k_sorted_lists(lists):
+    k = len(lists)  # Number of lists
+    indices = [0] * k  # Initialize indices for each list
+    result = []  # To store the merged result
+
+    while True:
+        min_value = float('inf')
+        min_index = -1
+
+        for i in range(k):
+            if indices[i] < len(lists[i]) and lists[i][indices[i]] < min_value:
+                min_value = lists[i][indices[i]]
+                min_index = i
+
+        if min_index == -1:
+            break
+
+        result.append(min_value)
+        indices[min_index] += 1
+
+    return result
+
+
+def split_for_k(arr, k) -> list[list[int]]:
+    n = len(arr)
+    avg = n / k
+    parts = []
+    last = 0
+
+    while last < n:
+        add = arr[int(last):int(last + avg)]
+
+        if add:
+            parts.append(add)
+
+        last += avg
+
+    return parts
+
+
+def merge_sort(arr, k) -> list:
+    """
+       Perform merge sort on a list, splitting it into k parts.
+
+       Args:
+           arr (list): The list to be sorted.
+           k (int): The number of parts to split the list into.
+
+       Returns:
+           list: The sorted list.
+
+       Examples:
+           >>> merge_sort([12, 11, 13, 5, 6, 7], 3)
+           [5, 6, 7, 11, 12, 13]
+
+           >>> merge_sort([7, 3, 13, 74, 345, 86, 12, 8], 7)
+           [3, 7, 8, 12, 13, 74, 86, 345]
+
+           >>> merge_sort([], 7)
+           []
+
+           >>> merge_sort([1, 1, 1, 1], 2)
+           [1, 1, 1, 1]
+
+           >>> merge_sort([1, 0, -1], 2)
+           [-1, 0, 1]
+    """
+    larr = len(arr)  # length of the array
+
+    if larr <= 1:
+        return arr
+    else:
+        sorted_parts = [merge_sort(part, k) for part in split_for_k(arr, k)]
+        return merge_k_sorted_lists(sorted_parts)
+
+
+def merge_sort_performance():
+    for n in range(100, 10001, 100):
+        array = [random.randint(0, 2 * n) for _ in range(0, n)]
+
+        start_time = time.time()
+        merge_sort(array, math.ceil(len(array) / 4))
+        run_time = (time.time() - start_time) * 1000
+        print("%d/t%.1f" % (n, run_time))
+
+
+if __name__ == "__main__":
+    merge_sort_performance()
+    n = 1000
+    k_limit = 20
+    for k in range(2, k_limit):
+        arr = [random.randint(0, 10000) for i in range(n)]
+        sorted_arr = merge_sort(arr, k)
+        if not sorted_arr == sorted(arr):
+            raise Exception("Didn't Sort Correctly!")
+    print("seems to work")

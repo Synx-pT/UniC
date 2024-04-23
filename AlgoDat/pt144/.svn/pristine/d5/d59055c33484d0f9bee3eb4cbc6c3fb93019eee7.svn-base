@@ -1,0 +1,11 @@
+.PHONY: all style test
+
+all: style test
+
+style:
+	@echo "Checking Python style with flake8..."
+	flake8 MergeSort.py
+
+test:
+	@echo "Checking Python style with flake8..."
+	python -m doctest MergeSort.py
