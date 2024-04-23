@@ -11,12 +11,12 @@ checkstyle:
 # Target for syntax check or pre-compilation step
 compile:
 	@echo "Performing Python syntax check..."
-	python -m py_compile MergeSort.py
+	python3.12 -m py_compile MergeSort.py
 
 # Target for running unit tests with pytest and doctest.
 test:
 	@echo "Running doctests..."
-	python -m doctest MergeSort.py
+	python3.12 -m doctest MergeSort.py
 
 # Target to clean up the project.
 clean:
