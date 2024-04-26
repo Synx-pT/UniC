@@ -1,8 +1,11 @@
+// Copyright (C) Paul Tröster - All Rights Reserved
 
 #include <cstdio>
 #include <cstdlib>
 
-int calc_gcd(int x, int y, bool verbose = false) {
+//____________________________________________________________________________
+
+int calc_gcd(int x, int y, bool verbose = true) {
   if (x == 0)
     return y;
   if (y == 0)
@@ -10,7 +13,7 @@ int calc_gcd(int x, int y, bool verbose = false) {
 
   while (y != 0) {
     if (verbose) {
-      printf("gcd(%d, %d)\n", x, y);
+      printf("gcd(%d, %d)\n", y, x);
     }
     int temp = y;
     y = x % y;

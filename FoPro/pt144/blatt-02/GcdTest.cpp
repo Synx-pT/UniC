@@ -1,7 +1,8 @@
+// Copyright (C) Paul Tröster - All Rights Reserved
 
 #include <gtest/gtest.h>
 
-#include "./Gcd.cpp"
+#include "./Gcd.h"
 
 TEST(GcdTest, calc_gcd) {
   ASSERT_EQ(calc_gcd(18, 24), 6);

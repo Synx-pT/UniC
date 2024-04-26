@@ -1,5 +1,9 @@
+// Copyright (C) Paul Tröster - All Rights Reserved
 
-#include "./Gcd.cpp"
+#include "./Gcd.h"
+
+#include <cstdio>
+#include <cstdlib>
 
 int main(int argc, char const *argv[]) {
   if (argc != 3) {
@@ -12,6 +16,6 @@ int main(int argc, char const *argv[]) {
 
   int result = calc_gcd(x, y, true);
 
-  printf("gcd(%d, %d) = %d\n", x, y, result);
+  printf("gcd(%d, %d) = %d\n", y, x, result);
   return 0;
 }

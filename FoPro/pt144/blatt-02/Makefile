@@ -1,16 +1,36 @@
+# Copyright (C) Paul Tröster - All Rights Reserved
+
+.SUFFIXES:
+.PHONY: clean compile checkstyle test
+.PRECIOUS: %.o
+
 all:	clean compile checkstyle test
 
+compile: GcdMain GcdTest
+	clang++ -c Gcd.cpp GcdMain.cpp GcdTest.cpp
 
-clean:
-	rm -f GcdMain
-	rm -f GcdTest
+GcdMain: Gcd.o GcdMain.o
+	clang++ -o GcdMain Gcd.o GcdMain.o
 
-compile:
-	clang++ -o GcdMain GcdMain.cpp
-	clang++ -o GcdTest GcdTest.cpp -lgtest
+GcdTest: GcdTest.o Gcd.o
+	clang++ -o GcdTest GcdTest.o Gcd.o -lgtest
+
+Gcd.o: Gcd.cpp
+	clang++ -c Gcd.cpp
+
+GcdMain.o: GcdMain.cpp
+	clang++ -c GcdMain.cpp
+
+GcdTest.o: GcdTest.cpp
+	clang++ -c GcdTest.cpp
 
 test:
 	./GcdTest
+
+clean:
+	rm -f *.o
+	rm -f GcdMain
+	rm -f GcdTest
 
 checkstyle:
 	clang-format-14 --dry-run -Werror *.cpp
