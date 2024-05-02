@@ -1,0 +1,41 @@
+# Load n = 10 into S[30]
+LOADI 10
+STORE 30
+
+# Initialize carry into S[31] (a)
+LOADI 1
+STORE 31
+
+# Initialize carry for solution in S[33] (b)
+LOADI 0
+STORE 33
+
+# ---------------------------
+
+# Subtract one from n
+LOAD 30
+SUBI 1
+STORE 30
+
+# Jump to end if n < 0
+JUMPC < 9
+
+# Load b onto b-temp and initialize a-temp
+LOAD 33
+STORE 32
+
+# Calculate b
+LOAD 33
+ADD 31
+STORE 33
+
+# Set a to previous b
+LOAD 32
+STORE 31
+JUMP -11
+
+# ---------------------------
+
+# Print the result and loop forever
+PRINT 33
+JUMP 0
