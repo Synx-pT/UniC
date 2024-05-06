@@ -1,0 +1,15 @@
+Team:
+Paul Tröster pt144
+Ege Tekin et130
+Yorick Schiffer ys151
+
+Bucket Sort: Durchschnittlich O(n + k), Schlechtestens O(n^2) wenn alle in einem Bucket,
+Bestenfalls O(n + k) gleichmäßig verteilt.
+
+Radix Sort: O(nk), k ist Anzahl Durchläufe bezogen auf die größte Zahlendigits.
+
+Laufzeit von BucketSort sieht linear aus, wie erwartet.
+
+Laufzeit von RadixSort ist eher exponentiel, also auch wie erwartet.
+
+Insgesamt kann man sagen das Radix Sort sehr viel langsamer ist im Vergleich.
