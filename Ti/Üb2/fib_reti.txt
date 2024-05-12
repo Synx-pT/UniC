@@ -1,5 +1,5 @@
 # Load n = 10 into S[30]
-LOADI 10
+LOADI 4
 STORE 30
 
 # Initialize carry into S[31] (a)
