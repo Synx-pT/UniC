@@ -34,7 +34,7 @@ int main() {
         pressed_spacebar = false;
         mvprintw(LINES - 2, COLS / 2 - 12, "---SPACEBAR DEACTIVATED---");
       }
-      usleep(500'000);
+      usleep(50'000);
     }
 
     if (getmouse(&event) == OK) {
@@ -47,23 +47,9 @@ int main() {
         attroff(COLOR_PAIR(1));
       }
     }
-    if (key == 'g') {
-      drawGlider(row, col);
-      showState();
-    }
-    if (key == 'r') {
-      setPixelsToRandomValues();
-      showState();
-    }
-    if (key == 113) {
+    bool input = processUserInput(key);
+    if (input) {
       break;
-    }
-    if (key == 115) {
-      updateState();
-      showState();
-    }
-    if (key == 32) {
-      pressed_spacebar = true;
     }
     usleep(1000);
   }

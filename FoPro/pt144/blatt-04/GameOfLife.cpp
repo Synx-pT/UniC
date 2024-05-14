@@ -135,9 +135,6 @@ void updateState() {
 }
 
 // ____________________________________________________________________________
-void endNcurses() { endwin(); }
-
-// ____________________________________________________________________________
 void showState() {
 
   setStateArray();
@@ -187,7 +184,7 @@ void drawGlider(int row, int col) {
 void setPixelsToRandomValues() {
   setStateArray();
   for (int i = 0; i < numRows * numCols; i++) {
-    stateArray[i] = rand() % 8 == 0 ? true : false;
+    stateArray[i] = rand() % 5 == 0 ? true : false;
   }
 }
 
@@ -200,6 +197,29 @@ void drawBox() {
 }
 
 // ____________________________________________________________________________
+bool processUserInput(int keycode) {
+  switch (keycode) {
+  case 103: // g - glider
+    drawGlider(row, col);
+    break;
+  case 114: // r - random pixels
+    setPixelsToRandomValues();
+    break;
+  case 113: // q - quit
+    return true;
+    break;
+  case 115: // s - step
+    updateState();
+    break;
+  case 32: // spacebar - auto-step
+    pressed_spacebar = true;
+    break;
+  }
+  showState();
+  return false;
+}
+
+// ____________________________________________________________________________
 bool processMouseClick(MEVENT event) {
   if (event.bstate & BUTTON1_PRESSED) {
     row = event.y;
@@ -209,3 +229,6 @@ bool processMouseClick(MEVENT event) {
     return false;
   }
 }
+
+// ____________________________________________________________________________
+void endNcurses() { endwin(); }
