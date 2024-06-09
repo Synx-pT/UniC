@@ -1,0 +1,13 @@
+Adding erfahrungen
+--This line, and those below, will be ignored--
+
+M    blatt-02/Makefile
+M    blatt-04/test.py
+A    blatt-05
+A    blatt-05/GameOfLife.cpp
+A    blatt-05/GameOfLife.h
+A    blatt-05/GameOfLifeMain.cpp
+A    blatt-05/GameOfLifeTest.cpp
+A    blatt-05/Makefile
+A    blatt-05/TerminalManager.cpp
+A    blatt-05/TerminalManager.h

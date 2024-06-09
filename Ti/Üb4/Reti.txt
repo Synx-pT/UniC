@@ -1,0 +1,53 @@
+# Load x/y into M(40)/M(41)
+LOADI 114
+STORE 40
+
+LOADI 1140
+STORE 41
+
+# Creating M(42) for solution
+
+LOADI 0
+STORE 42
+
+# Creating M(30) for cheking min()/max()
+LOADI 0
+STORE 30
+
+# Creating M(31) for tempx
+LOADI 0
+STORE 31
+
+# ______________________
+
+# Checking wether y - 1 < 0, if true jump to end.
+LOAD 41
+SUBI 1
+JUMPC < 13
+
+# Storing x - y in M(30)
+LOAD 40
+SUB 41
+STORE 30
+
+# Storing x in tempx
+LOAD 40
+STORE 31
+
+# x = y
+LOAD 41
+STORE 40
+
+# y = tempx
+LOAD 31
+STORE 41
+
+# ______________________
+
+# Load sol in M(42)
+LOAD 40
+STORE 42
+
+# Return sol
+PRINT 42
+JUMP 0

@@ -1,0 +1,6 @@
+47.30 seconds
+2.31 seconds
+
+SortWithMove ist um einiges schneller.
+Die Operationen von swapMove sind effizienter,
+da new/delete im gegensatz sehr teuer sind.

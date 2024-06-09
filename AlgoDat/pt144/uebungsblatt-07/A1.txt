@@ -1,0 +1,9 @@
+a)
+1. Kein Rot-Schwarz Baum.
+Es werden alle Anforderungen erfüllt aber es ist kein Binärer Baum.
+
+2. Passt alles.
+
+3. Kein Rot-Schwarz Baum.
+Regel 5 wird nicht eingehalten,
+es haben nicht alle Pfade die selbe Anzahl an schwarzen Knoten + Blättern.
